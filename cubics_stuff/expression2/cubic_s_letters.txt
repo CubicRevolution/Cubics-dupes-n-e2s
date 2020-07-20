@@ -1,0 +1,33 @@
+@name Cubic's Letters
+@inputs NumberIn:string
+@outputs NumberOut:string I
+@persist Font L I
+
+Scale=3 #Size of decals
+Spacing=25 #Space between them
+Color=vec(255) #The color, duh
+Text="ayy lmao."
+Font=0
+
+Fonts = array(
+"cubics_pack/fonts/southern_diesel/"
+    )[Font+1,string]
+
+E=entity()
+for(I=1,Text:length()){
+holoCreate(I)
+holoPos(I,E:toWorld(vec(0,(Spacing*I)-((Text:length()/2)*Spacing)-(Spacing/2),0)))
+holoAng(I, E:toWorld(ang(0,0,0)))
+holoParent(I, E)
+holoScale(I,vec(Scale))
+holoModel(I, "plane")
+holoColor(I,Color)
+if(Text:explode("")[I,string]==" "){
+holoMaterial(I,"magtrains/invisible")
+}elseif(Text:explode("")[I,string]=="."){
+holoPos(I,E:toWorld(vec( Scale*3.1 ,(Spacing*I)-((Text:length()/2)*Spacing)-(Spacing/2),0)))
+holoMaterial(I,Fonts+"period")
+}else{
+holoMaterial(I,Fonts+Text:explode("")[I,string])
+}
+}

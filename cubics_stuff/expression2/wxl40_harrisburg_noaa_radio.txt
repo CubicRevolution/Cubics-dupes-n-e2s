@@ -1,0 +1,4 @@
+@name WXL40 Harrisburg NOAA Radio
+@model models/props_lab/citizenradio.mdl
+entity():streamStart(0,"http://cvweather.dyndns.org:88/broadwave.mp3")
+streamVolume(0,1)

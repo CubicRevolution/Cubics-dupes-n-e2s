@@ -1,0 +1,19 @@
+@name Ah Freeman
+@persist I Num
+Laugh=array(
+"vo/npc/male01/ahgordon01.wav",
+"vo/npc/male01/ahgordon02.wav",
+"vo/npc/female01/ahgordon01.wav",
+"vo/npc/female01/ahgordon02.wav",
+"vo/npc/vortigaunt/freeman.wav",
+"vo/npc/male01/freeman.wav",
+"vo/npc/female01/freeman.wav"
+)
+interval(250)
+soundPlay(I,0,Laugh[randint(1,7),string])
+
+if(I>10){
+I=0
+}else{
+I++
+}

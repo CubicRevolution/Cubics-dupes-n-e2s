@@ -1,0 +1,10 @@
+@name Fart Burp
+@persist I Num
+
+interval(250)
+soundPlay(I,0,"humor/fart"+randint(1,24):toString()+".mp3")
+if(I>10){
+I=0
+}else{
+I++
+}

@@ -1,0 +1,81 @@
+@name Cubic's Dual-Mode Speedo
+@inputs MPH Number:string
+@model models/anytrains/props/detail/pulse_speedo.mdl
+if(first()||dupefinished()){
+#Made and distributed with love by CubicRevolution
+Num=Number:explode("")
+if(Number:length()>0){
+holoCreate(1)
+holoAng(1, entity():toWorld(ang(90,90,0)))
+holoParent(1, entity())
+holoScale(1,vec(0.07))
+holoModel(1, "plane")
+holoMaterial(1,"cubics_pack/numbers/sharpie/"+Num[1,string])
+}
+if(Number:length()>1){
+holoCreate(2)
+holoAng(2, entity():toWorld(ang(90,90,0)))
+holoParent(2, entity())
+holoScale(2,vec(0.07))
+holoModel(2, "plane")
+holoMaterial(2,"cubics_pack/numbers/sharpie/"+Num[2,string])
+}
+if(Number:length()>2){
+holoCreate(3)
+holoAng(3, entity():toWorld(ang(90,90,0)))
+holoParent(3, entity())
+holoScale(3,vec(0.07))
+holoModel(3, "plane")
+holoMaterial(3,"cubics_pack/numbers/sharpie/"+Num[3,string])
+}
+if(Number:length()>3){
+holoCreate(4)
+holoAng(4, entity():toWorld(ang(90,90,0)))
+holoParent(4, entity())
+holoScale(4,vec(0.07))
+holoModel(4, "plane")
+holoMaterial(4,"cubics_pack/numbers/sharpie/"+Num[4,string])
+}
+if(Number:length()==0){
+}elseif(Number:length()==1){
+holoPos(1,entity():toWorld(vec(0,0,0)))
+}elseif(Number:length()==2){
+holoPos(2,entity():toWorld(vec(-0.35,3.65,3.45)))
+holoPos(1,entity():toWorld(vec(0.35,3.65,3.45)))
+}elseif(Number:length()==3){
+holoPos(3,entity():toWorld(vec(-0.7,3.65,3.45)))
+holoPos(2,entity():toWorld(vec(0,3.65,3.45)))
+holoPos(1,entity():toWorld(vec(0.7,3.65,3.45)))
+}elseif(Number:length()==4){
+holoPos(4,entity():toWorld(vec(-1.05,3.65,3.425)))
+holoPos(3,entity():toWorld(vec(-0.35,3.65,3.45)))
+holoPos(2,entity():toWorld(vec(0.35,3.65,3.45)))
+holoPos(1,entity():toWorld(vec(1.05,3.65,3.425)))
+}
+holoCreate(5)
+holoPos(5,entity():toWorld(vec(0,3.55,0)))
+holoParent(5, entity())
+holoModel(5, "plane")
+holoScale(5, vec(0.425))
+holoMaterial(5,"models/gsgtrainprops/cab/needle_air_black")   
+holoCreate(6)
+holoPos(6,entity():toWorld(vec(0,3.45,0)))
+holoParent(6, entity())
+holoModel(6, "plane")
+holoScale(6, vec(0.3))
+holoMaterial(6,"models/gsgtrainprops/cab/needle_load_hickok_white")   
+holoColor(6,vec(128))
+}
+if(MPH<=80){
+holoAng(5, entity():toWorld(ang(86-(MPH*3.01),0,-90)) )
+}else{
+holoAng(5, entity():toWorld(ang(204.5,0,-90)) )
+}
+if(MPH<=8){
+holoAng(6, entity():toWorld(ang(72-(MPH*30.255),0,-90)) )
+}else{
+holoAng(6, entity():toWorld(ang(190.4,0,-90)) )
+}
+if(~Number){
+reset()
+}

@@ -1,0 +1,176 @@
+@name BC Rail Mobility Scooter
+@inputs E:entity
+
+if(dupefinished() | duped()){ reset() }
+if(first()){
+	
+    I=1 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(0,0,0)),vec(1,1,1),E:toWorld(+ang(0,0,0)))
+    holoModel(I,"models/props_vehicles/mobility_scooter.mdl")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(199,0,24))
+    holoEntity(I):setSubMaterial(1,"models/proppertextures/acrylic")
+    holoClipEnabled(I,1,1)
+    holoClip(I,1,vec(0,0,25),vec(0,0,1),0)
+    
+    I=2 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(0,0,0)),vec(1,1,1),E:toWorld(+ang(0,0,0)))
+    holoModel(I,"models/props_vehicles/mobility_scooter.mdl")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(255))
+    holoEntity(I):setSubMaterial(1,"models/proppertextures/acrylic")
+    holoClipEnabled(I,1,1)
+    holoClip(I,1,vec(0,0,25),vec(0,0,-1),0)
+    holoClipEnabled(I,2,1)
+    holoClip(I,2,vec(0,0,9),vec(0,0,1),0)
+    
+    I=3 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(0,0,0)),vec(1,1,1),E:toWorld(+ang(0,0,0)))
+    holoModel(I,"models/props_vehicles/mobility_scooter.mdl")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(0,30,70))
+    holoEntity(I):setSubMaterial(1,"models/proppertextures/acrylic")
+    holoEntity(I):setSubMaterial(4,"models/proppertextures/enamel_gray")
+    holoClipEnabled(I,1,1)
+    holoClip(I,1,vec(0,0,9),vec(0,0,-1),0)
+    holoClipEnabled(I,2,1)
+    holoClip(I,2,vec(31,0,0),vec(-1,0,0),0)
+    
+    I=4 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(0,0,0)),vec(1,1,1),E:toWorld(+ang(0,0,0)))
+    holoModel(I,"models/props_vehicles/mobility_scooter.mdl")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(199,0,24))
+    holoEntity(I):setSubMaterial(1,"models/proppertextures/acrylic")
+    holoEntity(I):setSubMaterial(4,"models/proppertextures/enamel_gray")
+    holoClipEnabled(I,1,1)
+    holoClip(I,1,vec(0,0,9),vec(0,0,-1),0)
+    holoClipEnabled(I,2,1)
+    holoClip(I,2,vec(31,0,0),vec(1,0,0),0)
+    
+    I=5 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(-6,13.8,12)),vec(0.25,0.9,1),E:toWorld(+ang(90,90,0)))
+    holoModel(I,"plane")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(0,30,70))
+    holoMaterial(I,"cubics_pack/logos/real/bcol/bcr_2")
+    
+    I=6 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(-6,13.8,12)),vec(0.25,0.9,1),E:toWorld(+ang(90,90,0)))
+    holoModel(I,"plane")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(199,0,24))
+    holoMaterial(I,"cubics_pack/logos/real/bcol/bcr_1")
+    
+    I=7 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(-6,-12.5,12)),vec(0.25,0.9,1),E:toWorld(+ang(90,90,180)))
+    holoModel(I,"plane")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(0,30,70))
+    holoMaterial(I,"cubics_pack/logos/real/bcol/bcr_2")
+    
+    I=8 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(-6,-12.5,12)),vec(0.25,0.9,1),E:toWorld(+ang(90,90,180)))
+    holoModel(I,"plane")
+    holoParent(I,E)
+    holoMaterial(I,"")
+    holoColor(I,vec(199,0,24))
+    holoMaterial(I,"cubics_pack/logos/real/bcol/bcr_1")
+    
+    I=9 #Holo ID                #position       #scale                   #rotation
+    holoCreate(I,E:toWorld(+vec(36,0,15)),vec(5),E:toWorld(+ang(0,90,95)))
+    holoModel(I,"plane")
+    holoParent(I,E)
+    holoColor(I,vec(199,0,24))
+    holoMaterial(I,"models/proppertextures/acrylic_hazard_diagonal_white_d1")
+    holoClipEnabled(I,1,1)
+    holoClip(I,1,vec(0,1.1,0),vec(0,1,0),0)
+    holoClipEnabled(I,2,1)
+    holoClip(I,2,vec(0,12.8,0),vec(0,-1,0),0)
+    holoClipEnabled(I,3,1)
+    holoClip(I,3,vec(-7.3,0,0),vec(1,0.1,0),0)
+    holoClipEnabled(I,4,1)
+    holoClip(I,4,vec(7.3,0,0),vec(-1,0.1,0),0)
+    
+I=73
+holoCreate(I)
+holoPos(I,E:toWorld(vec(39.6,-6.5,2.15)))
+holoParent(I, E)
+holoModel(I, "models/goomzmodels/details/rocklight_right.mdl")
+holoAng(I, E:toWorld(ang(0,0,0)) )
+holoScale(I, vec(0.35))
+holoEntity(I):setSubMaterial(1,"models/proppertextures/enamel_gray")
+
+I=74
+holoCreate(I)
+holoPos(I,E:toWorld(vec(39.6,6.5,2.15)))
+holoParent(I, E)
+holoModel(I, "models/goomzmodels/details/rocklight_left.mdl")
+holoAng(I, E:toWorld(ang(0,0,0)) )
+holoScale(I, vec(0.35))
+holoEntity(I):setSubMaterial(1,"models/proppertextures/enamel_gray")
+    
+I=75
+holoCreate(I)
+holoPos(I,E:toWorld(vec(40.25,6.75,1)))
+holoParent(I, E)
+holoModel(I, "models/gsgtrainprops/parts/headlights/headlight_singlebeam_large.mdl")
+holoAng(I, E:toWorld(ang(90,-20,0)) )
+holoScale(I, vec(0.35))
+holoEntity(I):setSubMaterial(1,"models/proppertextures/enamel_gray")
+
+I=76
+holoCreate(I)
+holoPos(I,E:toWorld(vec(40.25,-6.75,1)))
+holoParent(I, E)
+holoModel(I, "models/gsgtrainprops/parts/headlights/headlight_singlebeam_large.mdl")
+holoAng(I, E:toWorld(ang(90,20,0)) )
+holoScale(I, vec(0.35))
+holoEntity(I):setSubMaterial(1,"models/proppertextures/enamel_gray")
+    
+I=77
+holoCreate(I)
+holoPos(I,E:toWorld(vec(32,-6.1,13)))
+holoParent(I, E)
+holoModel(I, "models/gsgtrainprops/parts/headlights/headlight_singlebeam_large.mdl")
+holoEntity(I):setSubMaterial(1,"models/proppertextures/acrylic")
+holoAng(I, E:toWorld(ang(90,10,0)) )
+holoScale(I, vec(0.35))
+holoColor(I,vec(199,0,24))
+
+I=78
+holoCreate(I)
+holoPos(I,E:toWorld(vec(32,6.1,13)))
+holoParent(I, E)
+holoModel(I, "models/gsgtrainprops/parts/headlights/headlight_singlebeam_large.mdl")
+holoEntity(I):setSubMaterial(1,"models/proppertextures/acrylic")
+holoAng(I, E:toWorld(ang(90,-10,0)) )
+holoScale(I, vec(0.35))
+holoColor(I,vec(199,0,24))
+    
+I=79
+holoCreate(I)
+holoPos(I,E:toWorld(vec(33,-6,5)))
+holoParent(I, E)
+holoModel(I, "models/linnie/parts/part_ditchlightmount_bcrail.mdl")
+holoAng(I, E:toWorld(ang(0,10,0)) )
+holoScale(I, vec(0.35))
+holoColor(I,vec(199,0,24))
+
+I=80
+holoCreate(I)
+holoPos(I,E:toWorld(vec(33,6,5)))
+holoParent(I, E)
+holoModel(I, "models/linnie/parts/part_ditchlightmount_bcrail.mdl")
+holoAng(I, E:toWorld(ang(0,-10,0)) )
+holoScale(I, vec(0.35))
+holoColor(I,vec(199,0,24))
+    
+}

@@ -1,0 +1,56 @@
+@name Cubic's Control Stand Gauges
+@inputs Input1 Input2
+@model models/anytrains/props/detail/gauge_4unit.mdl
+if(first()||dupefinished()){
+    
+#Made and distributed with love by CubicRevolution
+
+GaugeType=0 #0=Ammeter, 1=CFM, 2=Air Cluster
+
+
+
+if(GaugeType==0){
+holoCreate(1)
+holoPos(1,entity():toWorld(vec(0,0,0)))
+holoParent(1, entity())
+holoModel(1, "plane")
+holoScale(1,vec(0.3))
+holoMaterial(1,"models/gsgtrainprops/cab/needle_load_emd_new_white")
+entity():setSubMaterial(3,"models/gsgtrainprops/cab/gauge_amp_emd_a1500_d800_v1")
+entity():setBodygroup(1,0)
+}
+if(GaugeType==1){
+holoCreate(1)
+holoPos(1,entity():toWorld(vec(0,0,0)))
+holoParent(1, entity())
+holoModel(1, "plane")
+holoScale(1,vec(0.3))
+holoMaterial(1,"models/gsgtrainprops/cab/needle_load_emd_new_white")
+entity():setSubMaterial(3,"models/gsgtrainprops/cab/gauge_air_grahamwhite_cfm_green")
+entity():setBodygroup(1,3)
+}
+if(GaugeType==2){
+holoCreate(1)
+holoPos(1,entity():toWorld(vec(0,0,0.01)))
+holoParent(1, entity())
+holoModel(1, "plane")
+holoScale(1,vec(0.31))
+holoMaterial(1,"models/gsgtrainprops/cab/needle_air_white")
+holoCreate(2)
+holoPos(2,entity():toWorld(vec(0,0,-0.04)))
+holoParent(2, entity())
+holoModel(2, "plane")
+holoScale(2,vec(0.3))
+holoMaterial(2,"models/gsgtrainprops/cab/needle_air_red")
+entity():setSubMaterial(3,"models/gsgtrainprops/cab/gauge_air_salem_160_green")
+entity():setBodygroup(1,0)
+}
+}
+if(GaugeType==0){
+holoAng(1, entity():toWorld(ang(0,-Input1/9.1,0)))#ammeter
+}elseif(GaugeType==1){
+holoAng(1, entity():toWorld(ang(0,55+((11*Input1)/60)+(-1*((11*Input1^2)/600)),0)))#cfm
+}else{
+holoAng(1, entity():toWorld(ang(0,10-Input1*1.68,0)))#brkpipe
+holoAng(2, entity():toWorld(ang(0,10-Input2*1.68,0)))#cyl
+}

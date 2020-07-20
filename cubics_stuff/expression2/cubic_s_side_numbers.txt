@@ -1,0 +1,50 @@
+@name Cubic's Side Numbers
+@inputs NumberIn:string
+@outputs NumberOut:string I
+@persist Font L I
+
+Scale=vec(3) #Size of decals
+Spacing=30 #Space between them
+Color=vec(255) #The color, duh
+Number=123456789#randint(1,999999)
+Font=0
+
+Fonts = array(
+"cubics_pack/numbers/helvetica/",
+"cubics_pack/numbers/prr/",
+"cubics_pack/numbers/up/",
+"cubics_pack/numbers/sou/",
+"cubic_dedication/cts_num",
+"models/monkcabdetailpack/numbers/rrnumber1/",
+"models/monkcabdetailpack/numbers/rrnumber2/",
+"models/monkcabdetailpack/numbers/rrnumber5/",
+"models/monkcabdetailpack/numbers/spold/",
+"models/monkcabdetailpack/numbers/spold/drop",
+"class 1s/cn/",
+"class 1s/cr/",
+"class 1s/mp/",
+"class 1s/up/",
+"class 1s/atsf/",
+"class 1s/cnw/",
+"class 1s/wm/"
+    )[Font+1,string]
+
+
+if(NumberIn:length()==0){
+NumberOut=Number:toString()
+}else{
+NumberOut=NumberIn
+}
+
+Num=NumberOut:explode("")
+E=entity()
+for(I=1,Number:toString():length()){
+holoCreate(I)
+holoPos(I,E:toWorld(vec(0,(Spacing*I)-((Number:toString():length()/2)*Spacing)-(Spacing/2),0)))
+holoAng(I, E:toWorld(ang(0,0,0)))
+holoParent(I, E)
+holoScale(I,Scale)
+holoModel(I, "plane")
+holoMaterial(I,Fonts+Num[I,string])
+holoColor(I,Color)
+}
