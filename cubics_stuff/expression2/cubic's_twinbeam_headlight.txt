@@ -1,0 +1,86 @@
+@name Cubic's Twinbeam Headlight
+@inputs On
+@outputs HdltOn
+@model models/gsgtrainprops/parts/headlights/headlight_twinbeam_plate.mdl
+
+#[
+Made and distributed with love by CubicRevolution
+-------------------------------------------------
+To use: wire up to my control stand (or any headlight switch that outputs 0-3,
+and then wire a wire lamp On to the output of this chip.
+To change materials/colors/bodygroups, change them on the model, then refresh the chip
+]#
+if(first() | duped()){
+entity():setMaterial("magtrains/invisible")
+holoCreate(1)
+holoPos(1,entity():toWorld(vec(0)))
+holoParent(1,entity())
+holoModel(1, "models/gsgtrainprops/parts/headlights/headlight_twinbeam_plate.mdl")
+holoAng(1,entity():toWorld(ang(0)))
+holoColor(1,entity():getColor())
+holoBodygroup(1,1,entity():getBodygroup(1))
+holoBodygroup(1,2,entity():getBodygroup(2))
+holoEntity(1):setSubMaterial(1,entity():getSubMaterial(1))
+holoEntity(1):setSubMaterial(2,entity():getSubMaterial(2))
+holoEntity(1):setSubMaterial(3,entity():getSubMaterial(3))
+holoEntity(1):setSubMaterial(5,entity():getSubMaterial(5))
+holoEntity(1):setSubMaterial(6,entity():getSubMaterial(6))
+holoEntity(1):setSubMaterial(4,"magtrains/invisible")
+
+holoCreate(2)
+holoPos(2,entity():toWorld(vec(0)))
+holoParent(2,entity())
+holoModel(2, "models/gsgtrainprops/parts/headlights/headlight_twinbeam_plate.mdl")
+holoAng(2,entity():toWorld(ang(0)))
+holoEntity(2):setSubMaterial(1,"magtrains/invisible")
+holoEntity(2):setSubMaterial(2,"magtrains/invisible")
+holoEntity(2):setSubMaterial(3,"magtrains/invisible")
+holoEntity(2):setSubMaterial(4,"")
+holoEntity(2):setSubMaterial(5,"magtrains/invisible")
+holoEntity(2):setSubMaterial(6,"magtrains/invisible")
+
+spriteSpawn(1,"sprites/light_glow02",entity():toWorld(vec(5.5,0,4)),vec(255,240,128),255,0.5,entity())
+spriteSpawn(2,"sprites/light_glow02",entity():toWorld(vec(-5.5,0,4)),vec(255,240,128),255,0.5,entity())
+spriteEnable(1,0)
+spriteEnable(2,0)
+}
+
+if(~On){
+if(On==1){
+holoColor(2,vec(240,240,80))
+spriteSetAlpha(1,100)
+spriteSetAlpha(2,100)
+spriteSetColor(1,vec(240,240,80))
+spriteSetColor(2,vec(240,240,80))
+spriteEnable(1,1)
+spriteEnable(2,1)
+holoEntity(2):setSubMaterial(4,"models/props_gulch/gulch_crystal_white")
+HdltOn=0
+}elseif(On==2){
+holoColor(2,vec(255,255,175))
+spriteSetAlpha(1,255)
+spriteSetAlpha(2,255)
+spriteSetColor(1,vec(255,240,128))
+spriteSetColor(2,vec(255,240,128))
+spriteEnable(1,1)
+spriteEnable(2,1)
+holoEntity(2):setSubMaterial(4,"models/props_gulch/gulch_crystal_white")
+HdltOn=0
+}elseif(On==3){
+holoColor(2,vec(255,255,175))
+spriteSetAlpha(1,255)
+spriteSetAlpha(2,255)
+spriteSetColor(1,vec(255,240,128))
+spriteSetColor(2,vec(255,240,128))
+spriteEnable(1,1)
+spriteEnable(2,1)
+holoEntity(2):setSubMaterial(4,"models/props_gulch/gulch_crystal_white")
+HdltOn=1
+}else{
+holoEntity(2):setSubMaterial(4,"models/proppertextures/glass_clear")
+holoColor(2,vec(255,255,255))
+spriteEnable(1,0)
+spriteEnable(2,0)
+HdltOn=0
+}
+}
