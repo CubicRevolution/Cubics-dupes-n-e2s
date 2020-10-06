@@ -1,0 +1,25 @@
+@name Car Rolling Sound
+@inputs E1:entity E2:entity E3:entity E4:entity E5:entity E6:entity
+@outputs 
+@model
+if(first()||dupefinished()||~E1||~E2||~E3||~E4||~E5||~E6){
+    SND=array("_jazzlok/traction/bogie_rolling01.wav","_jazzlok/traction/rumble_1.wav","_jazzlok/traction/rumble_2.wav","_jazzlok/traction/rumble_3.wav","_jazzlok/traction/rumble_4.wav","_jazzlok/traction/wheel_rolling_02_loop.wav","_jazzlok/traction/wheel_rolling_03_loop.wav","jazzlok_sounds/brakes/car_whine.wav","horn_and_sirens_soundpack/wheels/mixfreight_traction_rumble_loop.wav","horn_and_sirens_soundpack/wheels/mixfreight_traction_rumble 2loop.wav","horn_and_sirens_soundpack/wheels/high_gondola_traction_rumble_loop.wav","jazzlok_sounds/traction/wheel_rolling_01_loop.wav")
+    S1= SND[randint(0,11), string]
+    S2= SND[randint(0,11), string]
+    S3= SND[randint(0,11), string]
+    E1:soundPlay(0,0, S1)
+    E2:soundPlay(1,0, S1)
+    E3:soundPlay(2,0, S2)
+    E4:soundPlay(3,0, S2)
+    E5:soundPlay(4,0, S3)
+    E6:soundPlay(5,0, S3)
+}
+    
+interval(randint(247,253))
+Speed= E1:vel():length()
+soundPitch(0, Speed*0.2)
+soundPitch(1, Speed*0.2)
+soundPitch(2, Speed*0.2)
+soundPitch(3, Speed*0.2)
+soundPitch(4, Speed*0.2)
+soundPitch(5, Speed*0.2)
